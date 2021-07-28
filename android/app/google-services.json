@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "9712484566",
+    "firebase_url": "https://flutter-uber-clone-d2de7-default-rtdb.firebaseio.com",
+    "project_id": "flutter-uber-clone-d2de7",
+    "storage_bucket": "flutter-uber-clone-d2de7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9712484566:android:97e64e749baef1dd634977",
+        "android_client_info": {
+          "package_name": "com.shimultamo.driversapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9712484566-h382ln275km3cfiui8lrbaapsm67m3k8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-c1bC_tyhXJeE0xL31LslZR4OP7zsXfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9712484566-h382ln275km3cfiui8lrbaapsm67m3k8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9712484566:android:b1c4156dc86b9f13634977",
+        "android_client_info": {
+          "package_name": "com.shimultamo.riderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9712484566-h382ln275km3cfiui8lrbaapsm67m3k8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-c1bC_tyhXJeE0xL31LslZR4OP7zsXfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9712484566-h382ln275km3cfiui8lrbaapsm67m3k8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

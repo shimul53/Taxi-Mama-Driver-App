@@ -1,0 +1,68 @@
+name: drivers_app
+description: This is Driver's App Project
+
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  cupertino_icons: ^1.0.2
+  firebase_core: ^0.5.0+1
+  firebase_auth: ^0.18.1+2
+  firebase_database: ^4.1.1
+  fluttertoast: ^8.0.7
+  google_maps_flutter: ^1.0.3
+  geolocator: ^6.1.1
+  http: ^0.12.2
+  provider: ^4.3.3
+  flutter_polyline_points: ^0.2.4
+  font_awesome_flutter: ^9.1.0
+  animated_text_kit: ^4.2.1
+  flutter_geofire: ^1.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+     - images/car_android.png
+     - images/car_ios.png
+     - images/desticon.png
+     - images/desticon1.png
+     - images/logo.png
+     - images/logo1.png
+     - images/pickicon.png
+     - images/posimarker.png
+     - images/redmarker.png
+     - images/taxi.png
+     - images/user_icon.png
+
+
+
+#  fonts:
+#    - family: Signatra
+#      fonts:
+#        - asset: fonts/Signatra.ttf
+#    - family: Brand-Regular
+#      fonts:
+#        - asset: fonts/bolt-regular.ttf
+#    - family: Brand Bold
+#      fonts:
+#        - asset: fonts/bolt-semibold.ttf
+
