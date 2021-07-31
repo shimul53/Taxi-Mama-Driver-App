@@ -55,7 +55,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
     currentFirebaseUser = await FirebaseAuth.instance.currentUser;
     PushNotificationService pushNotificationService = PushNotificationService();
 
-    pushNotificationService.initialize();
+    pushNotificationService.initialize(context);
     pushNotificationService.getToken();
   }
 
@@ -149,7 +149,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
     Geofire.initialize("availableDrivers");
     Geofire.setLocation(currentFirebaseUser?.uid, currentPosition?.latitude,
         currentPosition?.longitude);
-
+    rideRequestRef.set("searching");
     rideRequestRef.onValue.listen((event) {});
   }
 

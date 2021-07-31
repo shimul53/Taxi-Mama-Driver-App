@@ -21,6 +21,8 @@ void main() async {
 
 DatabaseReference userRef =
     FirebaseDatabase.instance.reference().child("users");
+DatabaseReference newRequestRef =
+    FirebaseDatabase.instance.reference().child("Ride Requests");
 DatabaseReference driversRef =
     FirebaseDatabase.instance.reference().child("drivers");
 DatabaseReference rideRequestRef = FirebaseDatabase.instance
