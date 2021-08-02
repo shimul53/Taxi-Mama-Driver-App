@@ -60,14 +60,14 @@ flutter:
 
 
 
-#  fonts:
-#    - family: Signatra
-#      fonts:
-#        - asset: fonts/Signatra.ttf
-#    - family: Brand-Regular
-#      fonts:
-#        - asset: fonts/bolt-regular.ttf
-#    - family: Brand Bold
-#      fonts:
-#        - asset: fonts/bolt-semibold.ttf
+  fonts:
+    - family: Signatra
+      fonts:
+        - asset: fonts/Signatra.ttf
+    - family: Brand-Regular
+      fonts:
+        - asset: fonts/bolt-regular.ttf
+    - family: Brand Bold
+      fonts:
+        - asset: fonts/bolt-semibold.ttf
 

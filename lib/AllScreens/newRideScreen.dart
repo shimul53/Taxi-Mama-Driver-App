@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:drivers_app/AllWidgets/CollectFareDialog.dart';
 import 'package:drivers_app/AllWidgets/progressDialog.dart';
 import 'package:drivers_app/Assistants/assistantMethods.dart';
 import 'package:drivers_app/Assistants/mapKitAssistant.dart';
 import 'package:drivers_app/Models/rideDetails.dart';
 import 'package:drivers_app/configMaps.dart';
 import 'package:drivers_app/main.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -173,7 +175,7 @@ class _State extends State<NewRideScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Shimul Tamo",
+                          widget.rideDetails!.rider_name!,
                           style: TextStyle(
                               fontFamily: "Brand Bold", fontSize: 24.0),
                         ),
@@ -198,7 +200,7 @@ class _State extends State<NewRideScreen> {
                         ),
                         Expanded(
                           child: Text(
-                            "Street#53, Dhaka,Bangladesh",
+                            widget.rideDetails!.pickup_address!,
                             style: TextStyle(fontSize: 18.0),
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -220,7 +222,7 @@ class _State extends State<NewRideScreen> {
                         ),
                         Expanded(
                           child: Text(
-                            "Street#78, Dhaka,Bangladesh",
+                            widget.rideDetails!.dropoff_address!,
                             style: TextStyle(fontSize: 18.0),
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -429,6 +431,12 @@ class _State extends State<NewRideScreen> {
       "longitude": currentPosition!.longitude.toString()
     };
     newRequestRef.child(rideRequestId).child("driver_location").set(locMap);
+
+    driversRef
+        .child(currentFirebaseUser!.uid)
+        .child("history")
+        .child(rideRequestId)
+        .set(true);
   }
 
   void updateRideDetails() async {
@@ -484,5 +492,39 @@ class _State extends State<NewRideScreen> {
         .set(fareAmount.toString());
     newRequestRef.child(rideRequestId).child("status").set("ended");
     rideStreamSubscription!.cancel();
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) => CollectFareDialog(
+        paymentMethod: widget.rideDetails!.payment_method,
+        fareAmount: fareAmount,
+      ),
+    );
+    saveEarnings(fareAmount!);
+  }
+
+  void saveEarnings(int fareAmount) {
+    driversRef
+        .child(currentFirebaseUser!.uid)
+        .child("earnings")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      if (dataSnapshot.value != null) {
+        double oldEarnings = double.parse(dataSnapshot.value.toString());
+        double totalEarnings = fareAmount + oldEarnings;
+
+        driversRef
+            .child(currentFirebaseUser!.uid)
+            .child("earnings")
+            .set(totalEarnings.toStringAsFixed(2));
+      } else {
+        double totalEarnings = fareAmount.toDouble();
+        driversRef
+            .child(currentFirebaseUser!.uid)
+            .child("earnings")
+            .set(totalEarnings.toStringAsFixed(2));
+      }
+    });
   }
 }
