@@ -32,6 +32,7 @@ dependencies:
   firebase_messaging: ^7.0.3
   assets_audio_player: ^2.0.13+1
   maps_toolkit: ^1.1.0+2
+  intl: ^0.16.1
 
 
 dev_dependencies:
@@ -57,6 +58,7 @@ flutter:
      - images/taxi.png
      - images/user_icon.png
      - sounds/alert.mp3
+     - images/uberx.png
 
 
 
