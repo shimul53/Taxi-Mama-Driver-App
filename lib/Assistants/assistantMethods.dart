@@ -74,9 +74,18 @@ class AssistantMethods {
     double totalFareAmount = timeTraveledFare + distanceTraveledFare;
     //local currency
     //1$ = 84 taka
-    // double totalLocalAmount = totalFareAmount * 84;
-
-    return totalFareAmount.truncate();
+    double totalLocalAmount = totalFareAmount * 84;
+    if (rideType == "uber-x") {
+      double result = (totalLocalAmount.truncate()) * 2.0;
+      return result.truncate();
+    } else if (rideType == "uber-go") {
+      return totalLocalAmount.truncate();
+    } else if (rideType == "bike") {
+      double result = (totalLocalAmount.truncate()) / 2.0;
+      return result.truncate();
+    } else {
+      return totalLocalAmount.truncate();
+    }
   }
 
   // static void getCurrentOnlineUserInfo() async {
